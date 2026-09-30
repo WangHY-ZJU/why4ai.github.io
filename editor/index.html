@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>主页内容维护</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="editor.css">
+  <script defer src="editor.js"></script>
+</head>
+<body>
+  <header class="editor-header">
+    <div class="editor-wrap">
+      <p class="eyebrow">ACADEMIC HOMEPAGE</p>
+      <h1>主页内容维护</h1>
+      <p>在浏览器里填写内容，导出配置后通过 GitHub 提交发布。公开主页不会显示此页入口。</p>
+    </div>
+  </header>
+
+  <main class="editor-wrap">
+    <div class="notice" role="note">
+      <strong>当前修改尚未发布。</strong>请导出 site.json，在 GitHub 仓库中替换 data/site.json 并提交，网站才会更新。
+      <small>本页可由任何访客打开；编辑和导出只发生在各自浏览器中，不能更改网站。请勿填写密码或密钥。</small>
+    </div>
+
+    <div class="toolbar" aria-label="数据操作">
+      <button id="preview-button" type="button" class="primary">预览</button>
+      <button id="export-button" type="button">导出配置</button>
+      <button id="import-button" type="button">导入配置</button>
+      <input id="import-file" type="file" accept="application/json,.json" hidden>
+      <span id="editor-state" class="editor-state" role="status">正在加载当前已发布的数据…</span>
+    </div>
+    <div id="errors" class="errors" role="alert" hidden></div>
+
+    <section class="form-section" aria-labelledby="site-heading">
+      <h2 id="site-heading">站点设置</h2>
+      <div id="site-fields" class="field-grid"></div>
+    </section>
+
+    <section class="form-section" aria-labelledby="profile-heading">
+      <h2 id="profile-heading">个人信息</h2>
+      <p class="section-help">未填写的内容会自动隐藏。简介一行一段；研究方向一行一项。中文字段不填时沿用英文。</p>
+      <div id="profile-fields" class="field-grid"></div>
+    </section>
+
+    <section class="form-section" aria-labelledby="publications-heading">
+      <div class="section-head"><h2 id="publications-heading">论文</h2><button id="add-publication" type="button">新增论文</button></div>
+      <p class="section-help">作者一行一个，顺序即主页显示顺序；“精选”决定是否进入 Selected Publications。列表顺序由上移、下移决定。</p>
+      <div id="publications-list" class="card-list"></div>
+    </section>
+
+    <section class="form-section" aria-labelledby="other-heading">
+      <h2 id="other-heading">其他栏目</h2>
+      <p class="section-help">栏目没有有效条目时，主页及导航都会隐藏它。News 日期可留空。经历字段依次为时间、标题、机构、说明、链接。</p>
+      <div id="other-sections"></div>
+    </section>
+
+    <section class="form-section" id="preview-section" aria-labelledby="preview-heading">
+      <div class="section-head">
+        <h2 id="preview-heading">预览</h2>
+        <label class="preview-language">语言 <select id="preview-language"><option value="en">English</option><option value="zh">中文</option></select></label>
+      </div>
+      <p class="section-help">预览使用当前表单内容；图片和 CV 的路径需要先把文件放入仓库。导出前请留意下方资源检查结果。</p>
+      <div id="asset-check" class="asset-check" role="status"></div>
+      <iframe id="preview-frame" title="主页预览" loading="lazy"></iframe>
+    </section>
+
+    <section class="form-section help" aria-labelledby="help-heading">
+      <h2 id="help-heading">填写与发布说明</h2>
+      <p><strong>个人简介：</strong>英文或中文按段落逐行填写，例如第一行写研究主题，第二行写近期工作；网页会生成自然段，不需要 HTML。</p>
+      <p><strong>论文：</strong>标题、作者和年份为必填。会议填简称（例如 NDSS），状态填 Accepted 等真实状态。论文公开链接可填完整 https:// 地址。没有代码或项目主页就留空。</p>
+      <p><strong>图片：</strong>先在 GitHub 上传到 <code>assets/images/</code>，如 <code>assets/images/paper-figure.png</code>，再在相应表单中填写相同的相对路径。图片替代文本用于读屏；使用图片时必填。</p>
+      <p><strong>CV：</strong>将 PDF 上传到 <code>assets/files/</code>，例如 <code>assets/files/cv.pdf</code>，再将该路径填入 CV。更新时可覆盖同名文件并提交。</p>
+      <p><strong>发布：</strong>点击“导出配置”取得 <code>site.json</code>，在 GitHub 仓库替换 <code>data/site.json</code>，提交到主分支。GitHub Actions 校验、构建并发布，失败时保持旧网站。</p>
+    </section>
+  </main>
+</body>
+</html>

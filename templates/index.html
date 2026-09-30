@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{DESCRIPTION}}">
+  <title>{{TITLE}}</title>
+  <link rel="icon" href="data:,">
+  {{CANONICAL}}
+  {{SITEMAP}}
+  <link rel="stylesheet" href="{{ROOT}}assets/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="{{HOME_HREF}}">{{NAME}}</a>
+      <nav class="nav-links" aria-label="Primary">{{NAV}}</nav>
+      <span class="language-links">{{LANGUAGE_LINKS}}</span>
+    </div>
+  </header>
+  <main class="page-shell">
+    {{CONTENT}}
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">© {{NAME}}</div>
+  </footer>
+  <script src="{{ROOT}}assets/js/site.js"></script>
+</body>
+</html>

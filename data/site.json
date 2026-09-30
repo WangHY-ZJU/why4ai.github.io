@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "site": {
+    "language": "en",
+    "url": ""
+  },
+  "profile": {
+    "name": "Haoyu Wang",
+    "name_zh": "",
+    "affiliation": "",
+    "position": "",
+    "bio": [],
+    "research_interests": [],
+    "photo": "",
+    "photo_alt": "",
+    "email": "",
+    "scholar": "https://scholar.google.com/citations?hl=zh-CN&pli=1&user=1iq3-v0AAAAJ",
+    "github": "",
+    "cv": ""
+  },
+  "publications": [
+    {
+      "id": "ghosts-beneath-textures",
+      "title": "Ghosts Beneath Textures: Texture-Relation Cues for Cross-Paradigm AI-Generated Image Detection",
+      "authors": [
+        "Haoyu Wang",
+        "Yiming Qin",
+        "Zhongjie Ba",
+        "Ziping Dong",
+        "Jishen Zeng",
+        "Peng Cheng",
+        "Kui Ren"
+      ],
+      "venue": "NDSS",
+      "year": 2027,
+      "status": "Accepted",
+      "selected": true,
+      "thumbnail": "",
+      "thumbnail_alt": "",
+      "summary": "",
+      "links": {
+        "paper": "https://arxiv.org/abs/2607.03862",
+        "scholar": "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=1iq3-v0AAAAJ&citation_for_view=1iq3-v0AAAAJ:d1gkVwhDpl0C",
+        "code": "",
+        "project": ""
+      }
+    }
+  ],
+  "news": [],
+  "education": [],
+  "experience": [],
+  "projects": [],
+  "service": []
+}
